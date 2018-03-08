@@ -60,6 +60,7 @@ def speech(tts, end_session, reprompt):
     return {
         "version": "1.0",
         "response": {
+            "shouldEndSession": end_session,
             "outputSpeech": {
                 "type": "PlainText",
                 "text": tts
@@ -70,8 +71,7 @@ def speech(tts, end_session, reprompt):
                     "text": str(reprompt)
                 }
             }
-        },
-        "shouldEndSession": end_session
+        }
     }
 
 def speech_with_card(tts, end_session, reprompt, card_title, 
@@ -82,6 +82,7 @@ def speech_with_card(tts, end_session, reprompt, card_title,
     return {
         "version": "1.0",
         "response": {
+            "shouldEndSession": end_session,
             "outputSpeech": {
                 "type": "PlainText",
                 "text": tts
@@ -101,6 +102,5 @@ def speech_with_card(tts, end_session, reprompt, card_title,
                     "largeImageUrl": card_img_lg
                 }
             }
-        },
-        "shouldEndSession": end_session
+        }
     }
