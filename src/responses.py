@@ -53,7 +53,7 @@ def stop_audio():
 """
 Custom
 """
-def speech(tts, end_session):
+def speech(tts, end_session, reprompt):
     '''
     build speech output
     '''
@@ -63,12 +63,19 @@ def speech(tts, end_session):
             "outputSpeech": {
                 "type": "PlainText",
                 "text": tts
+            },
+            "reprompt": {
+                "outputSpeech": {
+                    "type": "PlainText",
+                    "text": str(reprompt)
+                }
             }
         },
         "shouldEndSession": end_session
     }
 
-def speech_with_card(tts, end_session, card_title, card_text, card_img_sm, card_img_lg):
+def speech_with_card(tts, end_session, reprompt, card_title, 
+                     card_text, card_img_sm, card_img_lg):
     '''
     build speech output
     '''
@@ -78,6 +85,12 @@ def speech_with_card(tts, end_session, card_title, card_text, card_img_sm, card_
             "outputSpeech": {
                 "type": "PlainText",
                 "text": tts
+            },
+            "reprompt": {
+                "outputSpeech": {
+                    "type": "PlainText",
+                    "text": str(reprompt)
+                }
             },
             "card": {
                 "type": "Standard",
