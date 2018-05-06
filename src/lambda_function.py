@@ -25,6 +25,7 @@ def lambda_handler(event, _context):
 def launch_request(request, session):
     '''handles modal launches'''
     print("=====launch request...")
+    return
 
 def intent_request(request, session):
     '''route intent'''
@@ -38,4 +39,4 @@ def intent_request(request, session):
 def end_session_request(request, session):
     '''handles stop/exit/quit'''
     print("=====end session request...")
-    responses.speech("Goodbye", True, "")
+    return responses.speech("Goodbye", True, "")
