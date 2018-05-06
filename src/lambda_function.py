@@ -19,13 +19,13 @@ def lambda_handler(event, _context):
         if event['request']['type'] == "SessionEndedRequest":
             return end_session_request(event['request'], event['session'])
     except KeyError as err:
-        print("=====ERROR bad request: " + err)
+        print("=====ERROR bad request: " + str(err))
         raise
 
 def launch_request(request, session):
     '''handles modal launches'''
     print("=====launch request...")
-    return
+    return 'placeholder'
 
 def intent_request(request, session):
     '''route intent'''
@@ -34,7 +34,7 @@ def intent_request(request, session):
     print("=====intent is: " + intent_name)
     if intent_name == "BLAH":
         print("=====BLAH intent...")
-        return blah(intent, session)
+        return intent
 
 def end_session_request(request, session):
     '''handles stop/exit/quit'''
