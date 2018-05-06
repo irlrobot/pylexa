@@ -13,12 +13,16 @@ def lambda_handler(event, _context):
     print('=====lambda handler started...')
     print(json.dumps(event))
 
-    if event['request']['type'] == "LaunchRequest":
-        return launch_request(event['request'], event['session'])
-    if event['request']['type'] == "IntentRequest":
-        return intent_request(event['request'], event['session'])
-    if event['request']['type'] == "SessionEndedRequest":
-        return end_session_request(event['request'], event['session'])
+    try:
+        if event['request']['type'] == "LaunchRequest":
+            return launch_request(event['request'], event['session'])
+        if event['request']['type'] == "IntentRequest":
+            return intent_request(event['request'], event['session'])
+        if event['request']['type'] == "SessionEndedRequest":
+            return end_session_request(event['request'], event['session'])
+    except KeyError as err:
+        print("=====ERROR bad request: " + err)
+        raise
 
 def launch_request(request, session):
     '''handles modal launches'''
