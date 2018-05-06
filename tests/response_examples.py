@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Example JSON responses to be used for tests
 """
