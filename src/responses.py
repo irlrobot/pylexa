@@ -5,51 +5,6 @@ Helper Module for building Alexa responses
 from __future__ import print_function
 import json
 
-'''
-Long Form Audio
-'''
-def play_audio(behavior, stream):
-    '''
-    Send AudioPlayer.Play Directive
-    '''
-    return {
-        "version": "1.0",
-        "sessionAttributes": {},
-        "response": {
-            "directives": [
-                {
-                    "type": "AudioPlayer.Play",
-                    "playBehavior": behavior,
-                    "audioItem": {
-                        "stream": {
-                            "token": "doesntreallymatter",
-                            "url": stream,
-                            "offsetInMilliseconds": 0
-                        }
-                    }
-                }
-            ],
-            "shouldEndSession": True
-        }
-    }
-
-def stop_audio():
-    '''
-    Send AudioPlayer.Stop Directive
-    '''
-    return {
-        "version": "1.0",
-        "sessionAttributes": {},
-        "response": {
-            "directives": [
-                {
-                    "type": "AudioPlayer.Stop",
-                }
-            ],
-            "shouldEndSession": True
-        }
-    }
-
 """
 Custom
 """
@@ -102,5 +57,50 @@ def speech_with_card(tts, end_session, reprompt, card_title,
                     "largeImageUrl": card_img_lg
                 }
             }
+        }
+    }
+
+'''
+Long Form Audio
+'''
+def play_audio(behavior, stream):
+    '''
+    Send AudioPlayer.Play Directive
+    '''
+    return {
+        "version": "1.0",
+        "sessionAttributes": {},
+        "response": {
+            "directives": [
+                {
+                    "type": "AudioPlayer.Play",
+                    "playBehavior": behavior,
+                    "audioItem": {
+                        "stream": {
+                            "token": "doesntreallymatter",
+                            "url": stream,
+                            "offsetInMilliseconds": 0
+                        }
+                    }
+                }
+            ],
+            "shouldEndSession": True
+        }
+    }
+
+def stop_audio():
+    '''
+    Send AudioPlayer.Stop Directive
+    '''
+    return {
+        "version": "1.0",
+        "sessionAttributes": {},
+        "response": {
+            "directives": [
+                {
+                    "type": "AudioPlayer.Stop",
+                }
+            ],
+            "shouldEndSession": True
         }
     }
