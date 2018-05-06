@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 """
-Skill Name
-v2.0.0
-github.com/irlrobot
+YOUR_SKILL_NAME_HERE
 """
 from __future__ import print_function
 import json
