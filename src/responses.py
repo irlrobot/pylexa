@@ -1,9 +1,6 @@
-#!/usr/bin/env python
 """
 Helper Module for building Alexa responses
 """
-from __future__ import print_function
-import json
 
 """
 Custom
