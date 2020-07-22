@@ -1,19 +1,24 @@
 #!/usr/bin/env python
 """
-Deploy the Lambda function
-v1.0.0
+Bundle and deploy the Lambda function
+v2.0.0
 """
-from __future__ import print_function
+import argparse
+import shutil
 import sys
 import boto3
 from botocore.exceptions import ClientError
+
+parser = argparse.ArgumentParser()
+parser.add_argument("function", help="The name of the AWS Lambda function to update.")
+args = parser.parse_args()
 
 def publish_new_version(artifact, func_name):
     """
     Publishes new version of the AWS Lambda Function
     """
     try:
-        session = boto3.Session()
+        session = boto3.Session(profile_name='perfect4alexa')
         client = session.client('lambda', region_name='us-east-1')
     except ClientError as err:
         print("Failed to create boto3 client.\n" + str(err))
@@ -36,9 +41,18 @@ def publish_new_version(artifact, func_name):
 
 def main():
     " Your favorite wrapper's favorite wrapper "
-    print('Starting deploy...')
-    if not publish_new_version('../lambda.zip', 'LAMBDA_NAME'):
-        print('Failed to deploy!')
+    print("Creating deployment package...")
+    shutil.make_archive("lambda_function", "zip", "src")
+
+    print("Starting deploy...")
+    published_new_version = publish_new_version(
+        "lambda_function.zip", str(args.function))
+
+    if published_new_version:
+        print("New version successfully published!")
+        sys.exit(0)
+    else:
+        print("Failed to deploy!")
         sys.exit(1)
 
 if __name__ == "__main__":
