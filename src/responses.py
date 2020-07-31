@@ -3,8 +3,10 @@ Helper Module for building Alexa responses
 """
 
 ####################
-#Speech
+# Speech
 ####################
+
+
 def speech(tts, end_session, reprompt):
     '''
     build speech output
@@ -26,7 +28,8 @@ def speech(tts, end_session, reprompt):
         }
     }
 
-def speech_with_card(tts, end_session, reprompt, card_title, 
+
+def speech_with_card(tts, end_session, reprompt, card_title,
                      card_text, card_img_sm, card_img_lg):
     '''
     build speech output
@@ -58,8 +61,10 @@ def speech_with_card(tts, end_session, reprompt, card_title,
     }
 
 ####################
-#Long Form Audio
+# Long Form Audio
 ####################
+
+
 def play_audio(behavior, stream):
     '''
     Send AudioPlayer.Play Directive
@@ -84,6 +89,7 @@ def play_audio(behavior, stream):
             "shouldEndSession": True
         }
     }
+
 
 def stop_audio():
     '''

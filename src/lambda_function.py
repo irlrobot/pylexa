@@ -5,6 +5,7 @@ from __future__ import print_function
 import json
 import responses
 
+
 def lambda_handler(event, _context):
     '''main function for AWS Lambda'''
     print('=====lambda handler started...')
@@ -21,10 +22,12 @@ def lambda_handler(event, _context):
         print("=====ERROR bad request: " + str(err))
         raise
 
+
 def launch_request(request, session):
     '''handles modal launches'''
     print("=====launch request...")
     return 'placeholder'
+
 
 def intent_request(request, session):
     '''route intent'''
@@ -34,6 +37,7 @@ def intent_request(request, session):
     if intent_name == "BLAH":
         print("=====BLAH intent...")
         return intent
+
 
 def end_session_request(request, session):
     '''handles stop/exit/quit'''
