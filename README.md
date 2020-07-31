@@ -2,7 +2,7 @@
 Boilerplate for creating a new Alexa skill with Python.
 
 # How to Use
-1. Clone via SSH
+1. Click the "Use This Template" button in GitHub. Or, clone via SSH
     ```
     git clone git@github.com:irlrobot/pylexa.git YOUR_SKILL_NAME
     ```
