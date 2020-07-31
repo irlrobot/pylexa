@@ -1,6 +1,1 @@
-pylint
-pytest
-pytest-mock
-pytest-cov
-boto3
-autopep8
+ask-sdk
